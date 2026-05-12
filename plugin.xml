@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="cordova-plugin-native-browser"
+        version="1.0.0">
+
+    <name>NativeBrowser</name>
+    <description>Native Android WebView overlay browser</description>
+    <license>MIT</license>
+
+    <engines>
+        <engine name="cordova-android" version=">=10.0.0" />
+    </engines>
+
+    <js-module src="www/NativeBrowser.js" name="NativeBrowser">
+        <clobbers target="NativeBrowser" />
+    </js-module>
+
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="NativeBrowser">
+                <param name="android-package" value="com.titanLauncher.nativebrowser.NativeBrowserPlugin" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <activity
+                android:name="com.titanLauncher.nativebrowser.BrowserActivity"
+                android:configChanges="orientation|screenSize|keyboardHidden"
+                android:windowSoftInputMode="adjustResize"
+                android:exported="false" />
+        </config-file>
+
+        <source-file src="src/android/NativeBrowserPlugin.java"
+                     target-dir="app/src/main/java/com/titanLauncher/nativebrowser" />
+        <source-file src="src/android/BrowserActivity.java"
+                     target-dir="app/src/main/java/com/titanLauncher/nativebrowser" />
+    </platform>
+
+</plugin>

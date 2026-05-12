@@ -1,0 +1,9 @@
+{
+  "name": "cordova-plugin-native-browser",
+  "version": "1.0.0",
+  "description": "Native WebView Overlay",
+  "cordova": {
+    "id": "cordova-plugin-native-browser",
+    "platforms": ["android"]
+  }
+}
